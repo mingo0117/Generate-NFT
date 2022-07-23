@@ -2,63 +2,41 @@ CONFIG:
   [
     {
       'id': 1,
-      'name': 'background',
-      'directory': 'Background',
+      'name': '背景',
+      'directory': 'bj',
       'required': True,
-      'rarity_weights': random,
+      'rarity_weights': None,
     },
     {
       'id': 2,
-      'name': 'Clothes',
-      'directory': 'Clothes',
+      'name': '武器',
+      'directory': 'wq',
       'required': True,
       'rarity_weights': None,
     },
     {
       'id': 3,
-      'name': 'Face',
-      'directory': 'Face',
+      'name': '主体',
+      'directory': 'zt',
       'required': True,
       'rarity_weights': None,
     },
     {
       'id': 4,
-      'name': 'Eye',
-      'directory': 'Eye',
+      'name': '服饰',
+      'directory': 'fs',
       'required': True,
       'rarity_weights': None,
     },
     {
       'id': 5,
-      'name': 'Tattoo',
-      'directory': 'Tattoo',
-      'required': False,
-      'rarity_weights': None,
-    },
-    {
-      'id': 6,
-      'name': 'JEWELRY1',
-      'directory': 'JEWELRY1',
-      'required': False,
-      'rarity_weights': None,
-    },
-    {
-      'id': 7,
-      'name': 'JEWELRY2',
-      'directory': 'JEWELRY2',
-      'required': False,
-      'rarity_weights': None,
-    },
-    {
-      'id': 8,
-      'name': 'JEWELRY3',
-      'directory': 'JEWELRY3',
-      'required': False,
+      'name': '帽子',
+      'directory': 'mz',
+      'required': True,
       'rarity_weights': None,
     },
   ]
-drop_dup: False
-CONFIG_JSON_NAME: "Greek-Mythical-Panda#"
-CONFIG_JSON_URL: "https://ipfs.io/ipfs/Qmd56C6tsi4SAzzMwhZDGogsUAZfzBXd6BX2BX5gmNwhew"
-CONFIG_JSON_DESCRIPTION: "The Greek Mythical Panda is a collection of 100 NFT digital identities with accessory backgrounds generated entirely from random seeds. Let you experience random art."
-
+drop_dup: True
+# CONFIG_JSON_NAME: "Greek-Mythical-Panda#"
+# CONFIG_JSON_URL: "https://ipfs.io/ipfs/Qmd56C6tsi4SAzzMwhZDGogsUAZfzBXd6BX2BX5gmNwhew"
+# CONFIG_JSON_DESCRIPTION: "The Greek Mythical Panda is a collection of 100 NFT digital identities with accessory backgrounds generated entirely from random seeds. Let you experience random art."

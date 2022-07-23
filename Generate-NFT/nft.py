@@ -9,8 +9,11 @@ from logger import Logger
 import sys
 import check_asset
 warnings.simplefilter(action='ignore', category=FutureWarning)
-import copy
+import datetime
 import yaml
+import shutil
+import upload2baidu
+import send2qw
 global all_traits_rarities
 global zfill_count
 zfill_count = 0
@@ -151,10 +154,23 @@ def main():
     log.logger.info("您想把该NFT项目命名为:")
     edition_name = input()
     log.logger.info(f"存储NFT文件夹名:{edition_name}")
+    start = datetime.datetime.now()  # 计时开始
     log.logger.info("开始生成...")
     rt = generate_images(edition_name, num_avatars,config["drop_dup"])
     log.logger.info("保存元数据...")
     rt.to_csv(os.path.join('output', 'edition ' + str(edition_name), 'metadata.csv'))
     log.logger.info("生成成功!")
+    log.logger.info("开始压缩...")
+    shutil.make_archive(os.path.join('output', str(edition_name)), 'zip', os.path.join('output','edition ' + str(edition_name), 'images'))
+    log.logger.info("压缩成功!")
+    log.logger.info("开始上传百度网盘...")
+    dir = upload2baidu.upload(os.path.join('output', str(edition_name)+'.zip'))
+    log.logger.info("上传百度网盘成功!")
+    log.logger.info("开始企微通知...")
+    qw = send2qw.WeChat()
+    end = datetime.datetime.now()  # 计时结束
+    qw.send_data("【NFT通知】主人主人！炫完了！炫！完！了！花了"+str(round((end - start).seconds / 60, 2))+"分钟哦！请登录【明】的百度网盘，文件在" + dir + "下！请自行下载或分享吧～")
+    log.logger.info("企微通知成功!")
     log.logger.info("--------------------------------------------------------------------------------------------")
+
 main()
